@@ -40,7 +40,10 @@
                     </div>
                     <div class= "row-content">
                         <label class = "label text" for="address">address</label>
-                        <textarea class="input text-area" id="address" name ="address" placeholder="" style="height: 100px;" autocomplete="off" required></textarea>
+                        <div class="input-error">
+                            <textarea class="input text-area" id="address" name ="address" placeholder="" style="height: 100px;" autocomplete="off" required></textarea>
+                            <error-output class ="address-error" for="address"></error-output>
+                        </div>
                     </div>
                     <div class="column-content">
                         <div class="row-content-2">
@@ -81,5 +84,7 @@
                 </div>
             </form>
         </div>
+        <script defer src="../js/add_person.js"></script>
+        <script defer src="../js/utility.js"></script>
     </body>
 </html>
