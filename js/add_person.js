@@ -71,11 +71,22 @@ const save = (event) => {
     event.stopPropagation();
     try{
         setContactDataJsonObj();
-        setContactData(); 
+        createAndUpdateStorage();
     }
     catch(e){
         return;
     }
+}
+
+const createAndUpdateStorage = () => {
+    let addressBookContactList = JSON.parse(localStorage.getItem("AddressBookContactList"));
+    if(addressBookContactList){
+        addressBookContactList.push(setContactData());
+    }
+    else {
+        addressBookContactList = [setContactData()];
+    }
+    localStorage.setItem("AddressBookContactList",JSON.stringify(addressBookContactList));
 }
 
 const setContactDataJsonObj = () => {
@@ -126,12 +137,17 @@ const setContactData = () => {
         throw e;
     }
     alert(contact.toString());
+    return contact;
 }
 
-const createContactId = () => {
-    return new Date().getTime();
-}
 
 const getValueById = (value) => {
     return document.querySelector(value).value;
+}
+
+const createContactId = () => {
+    let contactID = localStorage.getItem("ContactID");
+    contactID = !contactID ? "1" : (parseInt(contactID)+1).toString();
+    localStorage.setItem("ContactID",contactID);
+    return contactID;
 }
