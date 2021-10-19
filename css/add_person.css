@@ -33,3 +33,58 @@ body {
 }
 
 * { box-sizing: border-box;}
+
+.form-content{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center ;
+}
+
+form{
+    align-content: center;
+    width: 60%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #F5F5F5;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.form-head{
+    border-radius: 8px;
+    display: flex;
+    flex-flow: row;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    background: #008CFF 0% 0% no-repeat padding-box;
+    opacity: 1; 
+}
+
+.form-title{
+    padding-left: 33%;
+    padding-top: 11px;
+    font: normal normal normal 28px/37px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    flex-grow: 4;
+}
+
+
+.cancel-button{
+    padding-top: 8px;
+    flex-grow: 1;
+    padding-bottom: 2px;
+}
+
+@media screen and (max-width: 450px){
+    .form-title{
+        padding-left: 20px;
+        font: 24px;
+    }
+    form{
+        width:90%;
+    }
+}
