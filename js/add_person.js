@@ -72,6 +72,7 @@ const save = (event) => {
     try{
         setContactDataJsonObj();
         createAndUpdateStorage();
+        resetForm();
     }
     catch(e){
         return;
@@ -150,4 +151,18 @@ const createContactId = () => {
     contactID = !contactID ? "1" : (parseInt(contactID)+1).toString();
     localStorage.setItem("ContactID",contactID);
     return contactID;
+}
+
+const resetForm = () => {
+    setValue('#name','');
+    setValue('#phone','');
+    setValue('#address','');
+    setValue('#city','');
+    setValue('#state','');
+    setValue('#zip','');
+}
+
+const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
 }
