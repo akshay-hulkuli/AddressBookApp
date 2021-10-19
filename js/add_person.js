@@ -1,4 +1,4 @@
-let contactDataObj = {};
+let contactDataJsonObj = {};
 
 window.addEventListener('DOMContentLoaded', () =>{
     const name = document.querySelector('#name');
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             return;
         }
         try{
-        checkName(name.value);
+            (new Contact()).name = name.value;
             textError.textContent = "";
         } 
         catch(e) {
@@ -25,7 +25,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             return;
         }
         try{
-            checkPhoneNumber(phone.value);
+            (new Contact()).phoneNumber = phone.value;
             phoneError.textContent = "";
         } 
         catch(e) {
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             return;
         }
         try{
-            checkAddress(address.value);
+            (new Contact()).address = address.value;
             addressError.textContent = "";
         } 
         catch(e) {
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', () =>{
             return;
         }
         try{
-        checkZip(zip.value);
+            (new Contact()).zip = zip.value;
             zipError.textContent = "";
         } 
         catch(e) {
@@ -69,18 +69,63 @@ window.addEventListener('DOMContentLoaded', () =>{
 const save = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    setContactDataObj();
-    alert(JSON.stringify(contactDataObj));
+    try{
+        setContactDataJsonObj();
+        setContactData(); 
+    }
+    catch(e){
+        return;
+    }
 }
 
-const setContactDataObj = () => {
-    contactDataObj.id = createContactId();
-    contactDataObj._name = getValueById('#name');
-    contactDataObj._phoneNumber = getValueById('#phone');
-    contactDataObj._address = getValueById('#address');
-    contactDataObj._city = getValueById('#city');
-    contactDataObj._state = getValueById('#state');
-    contactDataObj._zip = getValueById('#zip');
+const setContactDataJsonObj = () => {
+    contactDataJsonObj.id = createContactId();
+    contactDataJsonObj._name = getValueById('#name');
+    contactDataJsonObj._phoneNumber = getValueById('#phone');
+    contactDataJsonObj._address = getValueById('#address');
+    contactDataJsonObj._city = getValueById('#city');
+    contactDataJsonObj._state = getValueById('#state');
+    contactDataJsonObj._zip = getValueById('#zip');
+}
+
+const setContactData = () => {
+    let contact = new Contact();
+    contact.id = contactDataJsonObj.id;
+    const textError = document.querySelector('.text-error');
+    try{
+        contact._name = contactDataJsonObj._name;
+    }
+    catch(e){
+        textError.textContent = e;
+        throw e;
+    }
+    const phoneError = document.querySelector('.phone-error');
+    try{
+        contact._phoneNumber = contactDataJsonObj._phoneNumber;
+    }
+    catch(e){
+        phoneError.textContent = e;
+        throw e;
+    }
+    const addressError = document.querySelector('.address-error');
+    try{
+        contact._address = contactDataJsonObj._address;
+    }
+    catch(e){
+        addressError.textContent = e;
+        throw e;
+    }
+    contact._city = contactDataJsonObj._city;
+    contact._state = contactDataJsonObj._state;
+    const zipError = document.querySelector('.zip-error');
+    try{
+        contact._zip = contactDataJsonObj._zip;
+    }
+    catch(e){
+        zipError.textContent = e;
+        throw e;
+    }
+    alert(contact.toString());
 }
 
 const createContactId = () => {
