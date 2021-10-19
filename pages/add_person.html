@@ -23,6 +23,62 @@
                     <span class="form-title">PERSON ADDRESS FORM</span>
                     <div class="cancel-button"><a href="../pages/address_book_home.html"><img src="../assets/icons/icons8-cancel-60.png" width="45" alt=""></a></div>
                 </div>
+                <div class="input-fields">
+                    <div class= "row-content">
+                        <label class = "label text" for="name">Full name</label>
+                        <div class="input-error">
+                            <input class="input" type="text" id="name" name ="name" placeholder="Your name.." autocomplete="off" required>
+                            <error-output class ="text-error" for="text"></error-output>
+                        </div>
+                    </div>
+                    <div class= "row-content">
+                        <label class = "label text" for="phone">phone number</label>
+                        <div class="input-error">
+                            <input class="input" type="text" id="phone" name ="phone" placeholder="Enter phone number" autocomplete="off" required>
+                            <error-output class ="phone-error" for="phone"></error-output>
+                        </div>
+                    </div>
+                    <div class= "row-content">
+                        <label class = "label text" for="address">address</label>
+                        <textarea class="input text-area" id="address" name ="address" placeholder="" style="height: 100px;" autocomplete="off" required></textarea>
+                    </div>
+                    <div class="column-content">
+                        <div class="row-content-2">
+                            <label class = "label text" for="city">City</label>
+                            <select id="city" name="city">
+                                <option value="" disabled selected>Select City</option>
+                                <option value ="Bangalore">Bangalore</option>
+                                <option value ="Chennai">Chennai</option>
+                                <option value ="Mumbai">Mumbai</option>
+                                <option value ="Kolkata">Kolkata</option>
+                                <option value ="Pune">Pune</option>
+                                <option value ="Ahmedabad">Ahmedabad</option>
+                                <option value ="Hyderabad">Hyderabad</option>
+                                <option value ="Delhi">Delhi</option>
+                            </select>
+                        </div>
+                        <div class="row-content-2">
+                            <label class = "label text" for="state">State</label>
+                            <select id="state" name="state">
+                                <option value="" disabled selected>Select State</option>
+                                <option value ="Karnataka">Karnataka</option>
+                                <option value ="Tamilnadu">Tamilnadu</option>
+                                <option value ="Maharashtra">Maharashtra</option>
+                                <option value ="WestBengal">WestBengal</option>
+                                <option value ="Gujarath">Gujarath</option>
+                                <option value ="Telangana">Telangana</option>
+                                <option value ="Delhi">Delhi</option>
+                            </select>
+                        </div>
+                        <div class= "row-content-2">
+                            <label class = "label text" for="zip">zip code</label>
+                            <div class="input-error">
+                                <input class="input" type="number" id="zip" name ="zip" autocomplete="off" required>
+                                <error-output class ="zip-error" for="zip"></error-output>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
             </form>
         </div>
     </body>
