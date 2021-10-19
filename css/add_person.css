@@ -79,6 +79,88 @@ form{
     padding-bottom: 2px;
 }
 
+.input-fields{
+    margin-top: 5%;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.row-content{
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    text-align: left;
+    font: normal normal normal 18px/24px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    opacity: 1;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+
+input{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    opacity: 1;
+    width: 100%;
+    padding: 13px;
+    resize: vertical;
+}
+
+.input-error{
+    display: flex;
+    flex-direction: row;
+}
+
+error-output {
+    margin-left: 10px;
+    font-size : 13px;
+    font-style: italic;
+    color: red;
+}
+
+.text-area {
+    width:99%;
+    justify-content: flex-start;
+}
+.column-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.row-content-2{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 31%;
+    padding: 0px;
+}
+
+textarea{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    opacity: 1;
+    width: 100%;
+    padding: 12px;
+    resize: vertical;
+}
+select{
+    font: normal normal normal 14px Roboto;
+    color: #42515F;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #BDBDBD;
+    border-radius: 3px;
+    opacity: 1;
+    width: 100%;
+    padding: 12px;
+    resize: vertical;
+}
+
 @media screen and (max-width: 450px){
     .form-title{
         padding-left: 20px;
