@@ -1,0 +1,35 @@
+body {
+    height: 100%;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+}
+
+.header-container{
+    display: flex;
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.logo{
+    padding-top: 10px;
+    display: flex;
+    flex-flow: row;
+    padding-left: 10%;
+}
+.logo-img{
+    width: 15%;
+}
+.logo-name{
+    margin-left: 3%;
+    text-align: left;
+    font: normal normal bold 22px/25px Montserrat;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    opacity: 1;
+    color: #008CFF;
+    text-transform: uppercase;
+}
+.second-line {
+    color: #42515F;
+}
+
+* { box-sizing: border-box;}
