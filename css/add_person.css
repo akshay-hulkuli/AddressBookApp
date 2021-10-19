@@ -123,10 +123,6 @@ error-output {
     color: red;
 }
 
-.text-area {
-    width:99%;
-    justify-content: flex-start;
-}
 .column-content{
     display: flex;
     flex-direction: row;
