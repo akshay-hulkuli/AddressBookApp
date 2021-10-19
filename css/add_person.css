@@ -186,3 +186,10 @@ select{
         width:90%;
     }
 }
+
+@media screen and (max-width: 1300px){
+    .form-title{
+        padding-left: 28%;
+        font: 24px;
+    }
+}
