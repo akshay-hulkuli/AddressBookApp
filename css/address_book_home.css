@@ -74,3 +74,42 @@ body {
     text-decoration: none;
     
 }
+
+table{
+    margin-top: 3%;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+}
+
+tr:not(:first-child){
+    border: 1px solid #E3E3E3;
+    border-radius: 3px;
+    background: #FFFFFF 0% 0% no-repeat;
+    box-shadow: 0px 3px 6px #00000029;
+    margin-bottom: 5px;
+}
+
+th{
+    text-align: left;
+    font: normal normal bold 18px/22px Lato;
+    letter-spacing: 0px;
+    color: #658292;
+    text-transform: capitalize;
+    opacity: 1;
+    padding-left: 50px;
+}
+
+td{
+    text-align: left;
+    font: normal normal 100 17px/22px Lato;
+    letter-spacing: 0px;
+    color: #3D3D3D;
+    opacity: 1;
+    background-color: white;
+    padding: 15px 5px 15px 50px;
+}
+
+.edit-icon{
+    margin-left: 0.8em;
+}
