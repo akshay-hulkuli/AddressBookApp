@@ -1,6 +1,3 @@
-import {makeServiceCall} from '../services/http_services.js';
-import {site_properties} from '../js/site_properties.js'
-
 let addressBookContactList;
 
 window.addEventListener('DOMContentLoaded',(event) =>{
