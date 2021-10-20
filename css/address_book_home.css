@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato);
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css2?family=Roboto);
 body {
     height: 100%;
     background: #F7F7F7 0% 0% no-repeat padding-box;
@@ -37,3 +38,39 @@ body {
 }
 
 * { box-sizing: border-box;}
+
+.content{
+    width: 85%;
+    margin: auto;
+}
+
+.content-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+.header-txt {
+    text-align: left;
+    font: normal normal bold 26px/23px Roboto;
+    letter-spacing: 0px;
+    color: #42515F;
+    opacity: 1;
+    margin: auto 0;
+}
+
+.add-button {
+    font: normal normal normal 22px/29px Roboto;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+    background: #008CFF 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 18px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
