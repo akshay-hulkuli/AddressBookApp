@@ -1,5 +1,3 @@
-import {checkAddress, checkPhoneNumber, checkName, checkZip} from '../js/utility.js';
-import {site_properties} from '../js/site_properties.js'
 
 let contactDataJsonObj = {};
 let isUpdate;
@@ -77,15 +75,36 @@ const save = (event) => {
     event.stopPropagation();
     try{
         setContactDataJsonObj();
-        createAndUpdateStorage();
-        resetForm();
-        window.location.replace(site_properties.home_page)
+        if(site_properties.use_local_storage.match(true)){
+            createAndUpdateStorage();
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        }
+        else {
+            createOrUpdateAddressBookDB();
+        }
     }
     catch(e){
         return;
     }
 }
 
+const createOrUpdateAddressBookDB = () => {
+    postUrl = site_properties.server_url;
+    methodType = "POST";
+    if(isUpdate){
+        methodType="PUT";
+        postUrl = postUrl + contactDataJsonObj.id.toString();
+    }
+    makeServiceCall(methodType, postUrl, true, contactDataJsonObj)
+        .then(responseText => {
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        })
+        .catch(error => {
+            throw error;
+        });
+}
 const createAndUpdateStorage = () => {
     let addressBookContactList = JSON.parse(localStorage.getItem("AddressBookContactList"));
     if(addressBookContactList){
