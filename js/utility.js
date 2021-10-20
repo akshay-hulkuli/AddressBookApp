@@ -21,5 +21,3 @@ const checkZip = (zip) => {
     if(!zipRegex.test(zip))
         throw "Zip Code is wrong";
 }
-
-export {checkAddress, checkPhoneNumber, checkName, checkZip};

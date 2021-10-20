@@ -4,5 +4,3 @@ let site_properties = {
     server_url: "http://localhost:3000/addressBookDB/",
     use_local_storage: "false"
 };
-
-export {site_properties};

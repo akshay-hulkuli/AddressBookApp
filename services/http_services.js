@@ -30,5 +30,3 @@ function makeServiceCall(methodType, url, async = true, data= null) {
         console.log(methodType+" request sent ot the server");
     });
 }
-
-export {makeServiceCall};
