@@ -16,7 +16,7 @@ body {
     padding-top: 8px;
     display: flex;
     flex-flow: row;
-    padding-left: 10%;
+    padding-left: 8%;
 }
 .logo-img{
     padding-top: 2px;
@@ -98,7 +98,7 @@ th{
     color: #658292;
     text-transform: capitalize;
     opacity: 1;
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 td{
@@ -108,7 +108,7 @@ td{
     color: #3D3D3D;
     opacity: 1;
     background-color: white;
-    padding: 15px 5px 15px 50px;
+    padding: 15px 5px 15px 40px;
 }
 
 td:last-child{
