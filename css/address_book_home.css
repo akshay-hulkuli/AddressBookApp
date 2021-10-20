@@ -80,6 +80,7 @@ table{
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 15px;
+    min-width: 800px;
 }
 
 tr:not(:first-child){
@@ -110,6 +111,20 @@ td{
     padding: 15px 5px 15px 50px;
 }
 
-.edit-icon{
-    margin-left: 0.8em;
+td:last-child{
+    padding: 15px 5px 15px 20px;
+}
+
+.delete-icon{
+    margin-right: 0.8em;
+}
+
+.table-main {
+    overflow: auto;
+}
+
+.no-contact-notification{
+    text-align: center;
+    margin-top: 100px;
+    color: rgb(156, 9, 9);
 }
