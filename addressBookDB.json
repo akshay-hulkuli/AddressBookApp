@@ -1,0 +1,22 @@
+{
+    "addressBookDB" : [
+        {
+            "id" : "1",
+            "_name" : "Akshay Hulkuli",
+            "_address": "No. 200 Azad road",
+            "_phoneNumber": "+916361695395",
+            "_city": "Bengaluru",
+            "_state": "Karnataka",
+            "_zip" : "577415"
+        },
+        {
+            "id" : "2",
+            "_name" : "Tanisha Udaya",
+            "_address": "Second cross, Savarkar nagar",
+            "_phoneNumber": "9561695395",
+            "_city": "Pune",
+            "_state": "Maharashtra",
+            "_zip" : "477005"
+        }
+    ]
+}
