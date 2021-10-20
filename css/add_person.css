@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css2?family=Roboto);
 body {
     height: 100%;
     background: #F7F7F7 0% 0% no-repeat padding-box;
@@ -10,18 +13,20 @@ body {
 }
 
 .logo{
-    padding-top: 10px;
+    padding-top: 8px;
     display: flex;
     flex-flow: row;
-    padding-left: 10%;
+    padding-left: 8%;
 }
 .logo-img{
-    width: 15%;
+    padding-top: 2px;
+    justify-self: center;
+    padding-bottom: 3px;
 }
 .logo-name{
-    margin-left: 3%;
+    margin-left: 6%;
     text-align: left;
-    font: normal normal bold 22px/25px Montserrat;
+    font: normal normal bold 20px/23px Montserrat;
     letter-spacing: 0px;
     text-transform: uppercase;
     opacity: 1;
