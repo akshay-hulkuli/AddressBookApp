@@ -182,6 +182,14 @@ select{
     border-radius: 3px;
 }
 
+.button:disabled{
+    background-color: #63717e;
+}
+
+.button:hover:enabled{
+    background-color: #008CFF;
+}
+
 @media screen and (max-width: 450px){
     .form-title{
         padding-left: 20px;
