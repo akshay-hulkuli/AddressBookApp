@@ -3,6 +3,7 @@ let addressBookContactList;
 window.addEventListener('DOMContentLoaded',(event) =>{
     addressBookContactList = getAddressBookContactsFromStorage();
     createInnerHtml();
+    localStorage.removeItem("EditContact");
 });
 
 const getAddressBookContactsFromStorage = () => {
@@ -27,7 +28,7 @@ const createInnerHtml = () => {
             <td>${contact._phoneNumber} </td>
             <td>
                 <img id="${contact.id}" class="delete-icon" onclick="remove(this)" alt="delete" src="../assets/icons/delete-black-18dp.svg">
-                <img id="${contact.id}" class="edit-icon" alt="edit" onclick="" src="../assets/icons/create-black-18dp.svg">
+                <img id="${contact.id}" class="edit-icon" alt="edit" onclick="update(this)" src="../assets/icons/create-black-18dp.svg">
             </td>
         </tr>`;
     }
@@ -42,4 +43,11 @@ const remove = (node) => {
     addressBookContactList.splice(index,1);
     localStorage.setItem("AddressBookContactList",JSON.stringify(addressBookContactList));
     createInnerHtml();
+}
+
+const update = (node) => {
+    let contact = addressBookContactList.find(contact => contact.id == node.id);
+    if(!contact) return;
+    localStorage.setItem("EditContact",JSON.stringify(contact));
+    window.location.replace(site_properties.add_person_page);
 }
