@@ -1,3 +1,6 @@
+import {checkAddress, checkPhoneNumber, checkName, checkZip} from '../js/utility.js';
+import {site_properties} from '../js/site_properties.js'
+
 let contactDataJsonObj = {};
 let isUpdate;
 
