@@ -68,6 +68,7 @@ window.addEventListener('DOMContentLoaded', () =>{
     });
 
     checkForUpdate();
+    if(!isUpdate) document.getElementById('submitButton').disabled = true;
 });
 
 const save = (event) => {
