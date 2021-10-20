@@ -1,13 +1,36 @@
+import {makeServiceCall} from '../services/http_services.js';
+import {site_properties} from '../js/site_properties.js'
+
 let addressBookContactList;
 
 window.addEventListener('DOMContentLoaded',(event) =>{
-    addressBookContactList = getAddressBookContactsFromStorage();
-    createInnerHtml();
-    localStorage.removeItem("EditContact");
+    if(site_properties.use_local_storage.match('true')){
+        getAddressBookContactsFromStorage();
+    }
+    else getAddressBookContactsFromServer();
 });
 
+const processAddressBookDataResponse = () => {
+    createInnerHtml();
+    localStorage.removeItem("EditContact");
+}
+
 const getAddressBookContactsFromStorage = () => {
-    return localStorage.getItem('AddressBookContactList') ? JSON.parse(localStorage.getItem('AddressBookContactList')) : [];
+    addressBookContactList = localStorage.getItem('AddressBookContactList') ? JSON.parse(localStorage.getItem('AddressBookContactList')) : [];
+    processAddressBookDataResponse();
+}
+
+const getAddressBookContactsFromServer = () => {
+    makeServiceCall("GET", site_properties.server_url, true)
+        .then( responseText => {
+            addressBookContactList = JSON.parse(responseText);
+            processAddressBookDataResponse();
+        })
+        .catch(error =>{
+            console.log("GET Error Status: "+ JSON.stringify(error));
+            addressBookContactList = [];
+            processAddressBookDataResponse();
+        });
 }
 
 const createInnerHtml = () => {
