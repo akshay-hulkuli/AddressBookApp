@@ -86,16 +86,31 @@ const save = (event) => {
 const createAndUpdateStorage = () => {
     let addressBookContactList = JSON.parse(localStorage.getItem("AddressBookContactList"));
     if(addressBookContactList){
-        addressBookContactList.push(setContactData());
+        let contact = addressBookContactList.find(contact => contact.id == contactDataJsonObj.id);
+        if(!contact){
+            addressBookContactList.push(createAddressBookContact());
+        }
+        else {
+            const index = addressBookContactList.map(contact => contact.id)
+                                                .indexOf(contactDataJsonObj.id);
+            addressBookContactList.splice(index, 1, createAddressBookContact(contactDataJsonObj.id));
+        }
     }
     else {
-        addressBookContactList = [setContactData()];
+        addressBookContactList = [createAddressBookContact()];
     }
     localStorage.setItem("AddressBookContactList",JSON.stringify(addressBookContactList));
 }
 
+const createAddressBookContact = (id) => {
+    let contact = new Contact();
+    if (!id) contact.id = createContactId();
+    else contact.id = id;
+    setContactData(contact);
+    return contact;
+}
+
 const setContactDataJsonObj = () => {
-    contactDataJsonObj.id = createContactId();
     contactDataJsonObj._name = getValueById('#name');
     contactDataJsonObj._phoneNumber = getValueById('#phone');
     contactDataJsonObj._address = getValueById('#address');
@@ -104,9 +119,7 @@ const setContactDataJsonObj = () => {
     contactDataJsonObj._zip = getValueById('#zip');
 }
 
-const setContactData = () => {
-    let contact = new Contact();
-    contact.id = contactDataJsonObj.id;
+const setContactData = (contact) => {
     const textError = document.querySelector('.text-error');
     try{
         contact._name = contactDataJsonObj._name;
