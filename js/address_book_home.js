@@ -61,8 +61,20 @@ const remove = (node) => {
     const index = addressBookContactList.map(contact => contact.id)
                                         .indexOf(contact.id);
     addressBookContactList.splice(index,1);
-    localStorage.setItem("AddressBookContactList",JSON.stringify(addressBookContactList));
-    createInnerHtml();
+    if(site_properties.use_local_storage.match('true')){
+        localStorage.setItem("AddressBookContactList",JSON.stringify(addressBookContactList));
+        createInnerHtml();
+    }   
+    else{
+        const deleteUrl = site_properties.server_url + contact.id.toString();
+        makeServiceCall("DELETE",deleteUrl,false)
+            .then(responseText => {
+                createInnerHtml();
+            })
+            .catch(error =>{
+                console.log("DELETE Error status: "+ JSON.stringify(error));
+            });
+    }
 }
 
 const update = (node) => {
