@@ -73,6 +73,7 @@ const save = (event) => {
         setContactDataJsonObj();
         createAndUpdateStorage();
         resetForm();
+        window.location.replace(site_properties.home_page)
     }
     catch(e){
         return;
@@ -137,7 +138,6 @@ const setContactData = () => {
         zipError.textContent = e;
         throw e;
     }
-    alert(contact.toString());
     return contact;
 }
 
