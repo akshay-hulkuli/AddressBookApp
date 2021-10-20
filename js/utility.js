@@ -21,3 +21,16 @@ const checkZip = (zip) => {
     if(!zipRegex.test(zip))
         throw "Zip Code is wrong";
 }
+
+function checkform()
+{
+    let formElements = document.getElementById("myform").elements;
+    // console.log(formElements.length);
+    let cansubmit = true;
+    for (let i = 0; i < formElements.length-2; i++) {
+        if (formElements[i].value.length == 0) cansubmit = false;
+    }
+    if (cansubmit) {
+        document.getElementById('submitButton').disabled = false;
+    }
+}
